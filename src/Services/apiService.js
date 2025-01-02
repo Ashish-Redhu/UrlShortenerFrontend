@@ -5,8 +5,8 @@ const backendProtoPlusHost = import.meta.env.VITE_BACKEND_PROTOPLUSHOST;
 const backendPORT = import.meta.env.VITE_BACKEND_PORT;
 
 // const backendURL = backendProtoPlusHost:backendPORT; // This will give error 
-// const backendURL = `${backendProtoPlusHost}:${backendPORT}`;
-const backendURL = import.meta.env.VITE_BACKEND_URL;
+const backendURL = `${backendProtoPlusHost}:${backendPORT}`;
+// const backendURL = import.meta.env.VITE_BACKEND_URL;
 
 
 // 1.)
