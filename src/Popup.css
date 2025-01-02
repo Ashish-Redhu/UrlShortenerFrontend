@@ -1,0 +1,16 @@
+.background{
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color: rgba(88, 94, 103, 0.7); /* Black with 50% opacity */
+    z-index: 999; /* Above the main content */
+}
+.form{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+}

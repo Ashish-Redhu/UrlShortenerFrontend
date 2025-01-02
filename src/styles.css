@@ -1,0 +1,28 @@
+/* styles.css */
+.profile-card-overlay {
+    position: fixed; /* Fix it to the viewport */
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(17, 24, 39, 0.7); /* Black with 50% opacity */
+    z-index: 999; /* Above the main content */
+  }
+  
+  .profile-card-container {
+    position: relative;
+    background-color: #2d3748; /* Adjust the color to match your theme */
+    padding: 20px;
+    border-radius: 8px;
+    opacity: 0.9;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+    max-width: 400px;
+    width: 100%;
+  }
+
+
+
+  
