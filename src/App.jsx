@@ -7,6 +7,7 @@ import Login from './Login';
 import SuccessPopup from './SuccessPopup';
 import ErrorPopup from './ErrorPopup';
 import HeroCustomization from './HeroCustomization';
+import { verifyToken } from './Services/apiService';
 function App() {
 
   // state to show customization popup.
@@ -25,6 +26,19 @@ function App() {
   // If user is premium we will provide his customization feature.
   const isPremiumUser = userDetails?.type === "PremiumUser"; 
 
+// useEffect for verifying token on mount
+useEffect(() => {
+  const fetchData = async () => {
+    try {
+        const data = await verifyToken(); 
+        setUserDetails(data); // Set user details if token is valid
+    } catch (e) {
+        console.error("Error while verifying token:", e); 
+    }
+  };
+    
+  fetchData(); // Call the async function inside the useEffect
+}, []); // Empty dependency array ensures this runs only once on mount
 
   useEffect(() => {
     // Check if the flag is set in localStorage
@@ -43,6 +57,8 @@ function App() {
       }, 2000);
     }
   }, []);
+
+ 
 
 
   return (

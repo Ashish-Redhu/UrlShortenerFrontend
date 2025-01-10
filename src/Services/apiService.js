@@ -102,6 +102,6 @@ export const verifyToken = async ()=>{
     }
     catch(error){
         console.error("Error verfiying token: ", error);
-        return null;
+        throw error;
     }
 }

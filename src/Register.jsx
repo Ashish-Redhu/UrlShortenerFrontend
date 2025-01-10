@@ -1,5 +1,5 @@
 // Tailwind CSS form + React Hook form concepts.
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useForm } from "react-hook-form";
 import { newUserRegistration } from './Services/apiService';
 import ErrorPopup from './ErrorPopup';
@@ -39,6 +39,24 @@ function Register({registerv, setRegister, setShowSuccessPopup, setUserDetails})
             },5000);      // We are doing this so that the popup become unvisible after a few seconds.  
         }
     }
+
+    // Add keyboard event listener
+    const handleKeyPress = (e) => {
+        if (e.key === "Enter") {
+            e.preventDefault(); // Prevent the default Enter key behavior
+            handleSubmit(handleRegister)(); // Trigger form submission
+        }
+    };
+    useEffect(() => {
+        // Attach event listener when the component mounts
+        document.addEventListener("keydown", handleKeyPress);
+        return () => {
+            // Cleanup the event listener when the component unmounts
+            document.removeEventListener("keydown", handleKeyPress);
+            console.log('destructured');
+        };
+    }, []);
+
     return(
         <div>
         <div className="background" onClick={toggleRegister}>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { loginUser } from './Services/apiService'; // Your API call to handle login
 import ErrorPopup from './ErrorPopup'; // Assuming you're using a custom ErrorPopup component
@@ -47,6 +47,24 @@ function Login({ login, setLogin, setRegister, setShowLoginSuccessPopup, setUser
             }, 5000);
         }
     };
+
+     // Add keyboard event listener
+     const handleKeyPress = (e) => {
+        if (e.key === "Enter") {
+            e.preventDefault(); // Prevent the default Enter key behavior
+            handleSubmit(handleLogin)(); // Trigger form submission
+        }
+    };
+    useEffect(() => {
+        // Attach event listener when the component mounts
+        document.addEventListener("keydown", handleKeyPress);
+        return () => {
+            // Cleanup the event listener when the component unmounts
+            document.removeEventListener("keydown", handleKeyPress);
+            console.log('destructured');
+        };
+    }, []);
+
 
     return (
         <div>
