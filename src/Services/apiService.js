@@ -5,8 +5,8 @@ const backendProtoPlusHost = import.meta.env.VITE_BACKEND_PROTOPLUSHOST;
 const backendPORT = import.meta.env.VITE_BACKEND_PORT;
 
 // const backendURL = backendProtoPlusHost:backendPORT; // This will give error 
-// const backendURL = `${backendProtoPlusHost}:${backendPORT}`;
-const backendURL = import.meta.env.VITE_BACKEND_URL;
+const backendURL = `${backendProtoPlusHost}:${backendPORT}`;
+// const backendURL = import.meta.env.VITE_BACKEND_URL;
 
 
 // 1.)
@@ -98,7 +98,8 @@ export const updateWalletMoney = async({email, amount})=>{
 export const verifyToken = async ()=>{
     try{
         const response = await axios.post(`${backendURL}/users/verify-token`, {}, {withCredentials: true});
-        return response.data;
+        // console.log(response.data.user);
+        return response.data.user;
     }
     catch(error){
         console.error("Error verfiying token: ", error);

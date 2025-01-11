@@ -35,7 +35,7 @@ function ProfileCard({ userDetails, closeProfileCard, setUserDetails, setShowLog
   const handleLogout = async()=>{
     try {
       // Perform logout
-      logoutUser();
+      await logoutUser();
     
       // Clear user details
       setUserDetails({});
